@@ -77,13 +77,6 @@ if main_radio == 'State':
                     table_holder.empty()
                     place_holder.write("Loading ⏳ buses available in {} .....".format(r_name))
 
-                    filters=st.expander("Filters")
-                    left, middle, right = filters.columns(3, vertical_alignment="top")
-                    dep_time=left.time_input("Departing Time",value=datetime.time(00))
-                    reach_time = middle.time_input("Reaching Time ",value=datetime.time(23,59))
-                    availablity = right.toggle('Only buses with more than 10 seats',value=True)
-                    # filters.button("Reset to default")
-                    
                     cursor.execute("SELECT * from buses where route_id=?",(route_value,))
                     bus_data= cursor.fetchall()
                     time.sleep(2)
@@ -93,6 +86,13 @@ if main_radio == 'State':
                     if len(bus_df):
                         place_holder.write("Showing buses in route between {}".format(r_name))
                         
+                        filters=st.expander("Filters")
+                        left, middle, right = filters.columns(3, vertical_alignment="top")
+                        dep_time=left.time_input("Departing Time",value=datetime.time(00))
+                        reach_time = middle.time_input("Reaching Time ",value=datetime.time(23,59))
+                        availablity = right.toggle('Only buses with more than 10 seats',value=True)
+                        # filters.button("Reset to default")
+
                         bus_df.columns=['Bus ID','Route ID','Bus Name','Bus Type','Departing Time',
                                         'Duration','Reaching Time','Rating','Price','Seats available']
                         if availablity:
@@ -107,8 +107,10 @@ if main_radio == 'State':
                         table_holder.dataframe(updated_df,hide_index=True)
                         
                     else:
+                        bus_count_place.empty()
                         place_holder.write("No buses in route between {}".format(r_name))
             else:
+                bus_count_place.empty()
                 place_holder.write("No routes available in {} .....".format(s_name))
     finally:
         cursor.close()
