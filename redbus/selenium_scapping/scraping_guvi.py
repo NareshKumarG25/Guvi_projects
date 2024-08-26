@@ -16,6 +16,7 @@ class GUVI_SCRAPING:
         self.driver.get(website)
         time.sleep(5)
 
+    #to open new tab in browser or close the current tab and move to previous tab
     def new_tab(self,action,new_url=''):
         if action == "open":
             self.driver.execute_script("window.open('');")
@@ -31,6 +32,7 @@ class GUVI_SCRAPING:
             self.page_count-=1
             self.driver.switch_to.window(self.driver.window_handles[self.page_count])
 
+    #to scroll down and load the entire page which is configures as lazy loading
     def lazy_loading_scroll(self):
         previous_height=self.driver.execute_script('return document.body.scrollHeight')
         while True:
@@ -42,11 +44,13 @@ class GUVI_SCRAPING:
                 break
             previous_height=new_height
     
+    #to open the goverment buses section
     def explore_page(self,parameter):
         if parameter == 'goverment_bus':
             new_link=self.driver.find_element(By.XPATH,self.goverment_bus).get_attribute('href')
             self.new_tab('open',new_link)
 
+    #to gather bus specific details 
     def get_bus_details(self,route_link):
 
         bus_detail_dict={}
@@ -87,6 +91,7 @@ class GUVI_SCRAPING:
         self.new_tab('close')
         return bus_detail_dict
 
+    #to find the list of all routes in the requested state
     def get_bus_routes(self,state_link):
         self.new_tab('open',state_link)
 
@@ -119,6 +124,7 @@ class GUVI_SCRAPING:
         self.new_tab('close')
         return route_dict
     
+    #to gather list of states available in goverment bus section
     def get_states(self):
         state_list = self.driver.find_elements(By.XPATH,self.state_route)
         for states in state_list:

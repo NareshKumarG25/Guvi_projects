@@ -1,3 +1,5 @@
+#script to get state list along with routes and buses 
+#using selenium scapping from redbus website
 import red_bus_selenium
 import time
 
