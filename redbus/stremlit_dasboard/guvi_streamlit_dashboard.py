@@ -1,3 +1,5 @@
+#Streamlit application file to show all bus routes and buses \
+#fetched from red bus website
 import streamlit as st
 import sqlite3
 import time
@@ -8,8 +10,6 @@ place_holder = st.empty()
 bus_count_place = st.empty()
 table_holder = st.empty()
 
-
-st.sidebar.title('Navigation')
 main_radio=st.sidebar.radio("Choose to move",['Home',"State"])
 
 if main_radio =="Home":
@@ -17,10 +17,11 @@ if main_radio =="Home":
     st.write("Choose state in the side bar to explore buses")
 
 if main_radio == 'State': 
-
+    st.sidebar.title('Red Bus Data')
     try:
         no_value ="Choose an option"
         db_name = 'redbus/database/red_bus.db'
+        # db_name= 'D:/Naresh/GUVI/git_testing/Guvi_projects/redbus/database/red_bus.db'
         conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
         cursor.execute("SELECT * from state_names")
