@@ -1,0 +1,22 @@
+Database details 
+  DB Name : red_bus.db
+  Tables created : 
+    1. state_names
+                state_id : Integer
+                state_name : varchar
+    2. bus_routes
+                state_id : Integer
+                route_id : Integer
+                route_name : Varchar
+                route_link : Varchar
+    3. buses
+                bus_id : Integer
+                route_id : Integer
+                bus_name : varchar
+                bus_type : Varchar
+                departing_time : Time
+                duration : Text
+                reaching_time : Time
+                star_ratng : Float
+                price : Decimal
+                seats_available : Integer
