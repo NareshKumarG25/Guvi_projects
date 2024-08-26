@@ -20,7 +20,7 @@ if main_radio == 'State':
 
     try:
         no_value ="Choose an option"
-        db_name = 'redbus/database/test_demo_red_bus.db'
+        db_name = 'redbus/database/red_bus.db'
         conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
         cursor.execute("SELECT * from state_names")
