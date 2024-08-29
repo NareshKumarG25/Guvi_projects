@@ -57,7 +57,21 @@ class GUVI_SCRAPING:
         bus_detail_dict['href']=route_link
         self.new_tab('open',route_link)
 
-        # write code to click view buses in grouped tab 
+        #to click view buses in goverment state grouped tab 
+        self.driver.execute_script('window.scrollTo(0,0)')
+        time.sleep(2)
+        groups =self.driver.find_elements(By.XPATH,'//div[@class="group-data clearfix"]')
+        time.sleep(3)
+        for button in groups:
+            try:
+                button.find_element(By.XPATH,'//i[@class="p-left-10 icon icon-down"]').click()
+                print("View button clicked")
+            except:
+                try:
+                    time.sleep(2) #for handleing page loading of more buses
+                    button.find_element(By.XPATH,'//i[@class="p-left-10 icon icon-down"]').click()
+                except:
+                    print("Exception View button")
 
         buses_list= self.driver.find_elements(By.XPATH,'//div[@scrollthreshold="1"]')
         bus_list = []
