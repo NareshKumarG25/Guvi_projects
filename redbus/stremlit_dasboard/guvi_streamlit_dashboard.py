@@ -11,12 +11,32 @@ bus_count_place = st.empty()
 table_holder = st.empty()
 
 main_radio=st.sidebar.radio("Choose to move",['Home',"State"])
+st.logo("redbus/stremlit_dasboard/guvi_logo.png",link="https://www.guvi.in")
+st.sidebar.markdown(
+    """
+    <div style="position: fixed; bottom:0;height:10%; width:25%; text-align: center;">
+        <a href="https://www.guvi.in" target="_blank">Learn from Guvi 💡</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
 
 if main_radio =="Home":
+    st.image("redbus/stremlit_dasboard/guvi_logo.png", width=150)
     st.header("Welcome to Naresh's GUVI Dashboard!!!!")
     st.write("Choose state in the side bar to explore buses")
 
+    st.markdown(
+    """
+    <div style="position: fixed; bottom:0;height:25%; width:75%; text-align: center;">
+        <a href="https://www.linkedin.com/in/naresh-kumar-8a7a49175" target="_blank">Hire professional data engineer 🎓</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
+
 if main_radio == 'State': 
+    st.logo("redbus/stremlit_dasboard/redbus.png",link='https://www.redbus.in')
     st.sidebar.title('Red Bus Data')
     try:
         no_value ="Choose an option"
@@ -30,7 +50,7 @@ if main_radio == 'State':
         state_df = pd.DataFrame(data)
         
         state_df.columns=["State ID","State Names"]
-        place_holder.text("Showing all routes avaialable.")
+        place_holder.text("Showing all States avaialable.")
         table_holder.table(state_df['State Names'])
         
         s_name=st.sidebar.selectbox(
