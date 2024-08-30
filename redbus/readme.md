@@ -1,4 +1,15 @@
 
+
+**Project Title**
+Redbus Data Scraping with Selenium & Dynamic Filtering using Streamlit
+
+**Skills take away From This Project**
+Web Scraping using Selenium, Python, Streamlit , SQL
+
+**Domain**
+Transportation
+
+
 Part 1 : Data scrapping using selenium
 
 To excute data scrapping script 
