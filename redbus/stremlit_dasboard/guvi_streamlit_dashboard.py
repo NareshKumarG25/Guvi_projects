@@ -20,7 +20,7 @@ if main_radio == 'State':
     st.sidebar.title('Red Bus Data')
     try:
         no_value ="Choose an option"
-        db_name = 'redbus/database/red_bus.db'
+        db_name = 'redbus/database/red_bus_v1.db'
         # db_name= 'D:/Naresh/GUVI/git_testing/Guvi_projects/redbus/database/red_bus.db'
         conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
