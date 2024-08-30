@@ -117,6 +117,7 @@ if main_radio == 'State':
                         bus_df.columns=['Bus ID','Route ID','Bus Name','Bus Type','Departing Time',
                                         'Duration','Reaching Time','Rating','Price','Seats available']
                         if availablity:
+                            st.sidebar.warning("Showing only buses with more than 10 seats, Use filters below the table change")
                             updated_df = bus_df.loc[
                             (bus_df['Seats available']>10) & (bus_df['Departing Time']>=str(dep_time)) &
                                 (bus_df['Reaching Time']<=str(reach_time))] 
@@ -128,11 +129,13 @@ if main_radio == 'State':
                         table_holder.dataframe(updated_df,hide_index=True)
                         
                     else:
-                        bus_count_place.empty()
                         place_holder.write("No buses in route between {}".format(r_name))
+                        bus_count_place.write("ooppsss!!!! 🤖")
+                        st.image("redbus/stremlit_dasboard/no_routes_found.jpg",width=300)
             else:
                 bus_count_place.empty()
                 place_holder.write("No routes available in {} .....".format(s_name))
+                st.image("redbus/stremlit_dasboard/no_routes_found.jpg",width=300)
     finally:
         cursor.close()
         conn.close()
