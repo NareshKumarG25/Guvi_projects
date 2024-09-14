@@ -16,3 +16,8 @@ Modules :
 **Main** --> Fetches data from all files stored in data folder and preprocess for the analytic useage
 
 **db_update** --> for intracting with DB (to create table and update values)
+
+Part 3 : 
+
+Interactive Dashboard is build using powerBI with data processed in part 1 & 2 for business analytics. 
+Dashboard path : dataspark\powerBI_dashboards
