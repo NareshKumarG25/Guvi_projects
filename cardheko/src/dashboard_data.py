@@ -8,7 +8,7 @@ class DashboardData():
 
     def __init__(self):  
         self.trained_model = joblib.load(path)
-        self.df= pd.read_excel(input_data)
+        self.df= pd.read_excel(input_data,engine='openpyxl')
         self.city_list = list(set(self.df['city']))
         self.car_list =self.get_car_list()
 
