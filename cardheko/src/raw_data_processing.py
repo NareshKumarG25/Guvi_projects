@@ -2,6 +2,7 @@ import pandas as pd
 import ast
 
 def data_processing (file,city,code):
+    print("Processing unstructed data to structured data...")
     df = pd.read_excel(file)
     dict_value = df['new_car_detail'].to_dict()
 

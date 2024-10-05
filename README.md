@@ -8,4 +8,4 @@ project 2 : DataSpark: Illuminating Insights for Global Electronics
 PowerBI Dashboard attached in 'dataspark\powerBI_dashboards'
 
 project 3 : Car Dheko - Used Car Price Prediction
-APP link : Yet to Update
+APP link : [guviprojects-cardheko.streamlit application](https://guviprojects-cardheko.streamlit.app/)
