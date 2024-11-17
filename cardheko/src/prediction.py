@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 from common_functions import convert_number_to_currency
 
-# Step 9: Function to load model and predict based on user input
+#Function to load model and predict based on user input
 def predict_price(user_input):
     # Load the saved model
     path =r'D:\Naresh\GUVI\Projects\CarDheko\data\processed_data\RandomForestRegressor_used_car_price_model.pkl'

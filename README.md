@@ -9,3 +9,7 @@ PowerBI Dashboard attached in 'dataspark\powerBI_dashboards'
 
 project 3 : Car Dheko - Used Car Price Prediction
 APP link : [guviprojects-cardheko.streamlit application](https://guviprojects-cardheko.streamlit.app/)
+
+project 4 : Microsoft : Classifying Cybersecurity Incidents with Machine Learning
+
+project 5 : Dominos - Predictive Purchase Order System
