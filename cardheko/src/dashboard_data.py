@@ -1,18 +1,16 @@
 import joblib
 import pandas as pd
 from common_functions import convert_number_to_currency
-
-path ='cardheko/data/processed_data/RandomForestRegressor_used_car_price_model.pkl'
-input_data ='cardheko/data/processed_data/model_data.xlsx'
+path =r'CarDheko\data\processed_data\random_forest_regression_used_car_price_model.pkl'
+input_data =r'CarDheko\data\processed_data\model_data_featured.xlsx'
 class DashboardData():
 
     def __init__(self):  
         self.trained_model = joblib.load(path)
-        self.df= pd.read_excel(input_data,engine='openpyxl')
+        self.df= pd.read_excel(input_data)
         self.city_list = list(set(self.df['city']))
         self.car_list =self.get_car_list()
 
-        
     def get_car_list(self):
         car_list={}
         df=self.df

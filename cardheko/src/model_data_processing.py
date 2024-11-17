@@ -25,3 +25,13 @@ def data_processing(file):
 
     new_df=pd.DataFrame(new_data,columns=column)
     return new_df
+
+def model_featuring(file):
+    data = pd.read_excel(file)
+    data.loc[data['year_of_registration'] == 0, 'year_of_registration'] = data['model_year']
+    data.loc[data['number_of_owners'] == 0, 'number_of_owners'] = 1
+
+    data.loc[data['km_driven'] == 0, 'km_driven'] = int(data['km_driven'].mean())
+    data.loc[data['km_driven'] < 1000, 'km_driven'] = 1000
+
+    return data

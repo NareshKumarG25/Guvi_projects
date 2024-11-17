@@ -2,8 +2,6 @@ import streamlit as st
 import time
 from dashboard_data import DashboardData
 
-
-
 data_obj = DashboardData()
 
 
@@ -14,7 +12,7 @@ with cola:
 with colb:
     manufacturer=st.selectbox('Brand',data_obj.car_list.keys(),index=None,placeholder="Choose an Brand")
 
-if manufacturer:
+if manufacturer and city:
     model=st.selectbox("Model",data_obj.car_list[manufacturer].keys(),index=None,placeholder="Choose an Model")
     if model:
         with st.popover("Click to Change variant"):
@@ -34,7 +32,7 @@ if manufacturer:
         with col1:
             number_of_owners=st.number_input(label="No of Owners",min_value=1,format="%d")
         with col2:
-            km_driven=st.number_input(label="kM Driven",min_value=0,step=100,format="%d")
+            km_driven=st.number_input(label="kM Driven",min_value=1000,max_value=250000,step=1000,format="%d")
         with col3:
             year_of_registration=st.selectbox("Year Of Registeration",list(range(model_year,2024)),index=None,placeholder="Choose Registred Year")
 
@@ -68,4 +66,4 @@ if manufacturer:
             time.sleep(1)
             my_bar.empty()
             st.write(f"Predicted Price : {price}")
-            st.write("Note : Value may vary with actual. Model Improvement in progress")
+            # st.write("Note : Value may vary with actual. Model Improvement in progress")

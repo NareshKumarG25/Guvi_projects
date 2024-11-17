@@ -34,3 +34,8 @@ if __name__ == '__main__':
     with pd.ExcelWriter(output_path+'model_data.xlsx') as writer:
         print("writing data in excel...")
         model_df.to_excel(writer, sheet_name='raw_processed',index=False)
+
+    model_df_featured = model_data_processing.model_featuring(output_path+'model_data.xlsx')
+    with pd.ExcelWriter(output_path+'model_data_featured.xlsx') as writer:
+        print("writing data in excel...")
+        model_df_featured.to_excel(writer, sheet_name='raw_processed',index=False)
