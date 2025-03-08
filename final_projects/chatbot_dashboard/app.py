@@ -75,8 +75,8 @@ elif task == "Generate Image":
         if result:
             st.image(result.get("image_url", "https://via.placeholder.com/150"), caption="Generated Image")
 
-# Display instructions and task descriptions
-st.write("""
-    Use this app to interact with various AI tasks like summarization, sentiment analysis, and more.
-    Just type the text in the provided box and select a task from the sidebar.
-""")
+
+#st.write("""
+#     Use this app to interact with various AI tasks like summarization, sentiment analysis, and more.
+#     Just type the text in the provided box and select a task from the sidebar.
+# """)

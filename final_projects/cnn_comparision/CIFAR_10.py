@@ -55,13 +55,13 @@ class AlexNet(nn.Module):
             nn.ReLU(inplace=True),
             
             # Add an adaptive pooling layer after convolutions
-            nn.AdaptiveAvgPool2d((6, 6))  # This is the critical change
+            nn.AdaptiveAvgPool2d((6, 6)) 
         )
         
         # Fully connected layers
         self.classifier = nn.Sequential(
             nn.Dropout(),
-            nn.Linear(256 * 6 * 6, 4096),  # Adjust the input size accordingly
+            nn.Linear(256 * 6 * 6, 4096),  
             nn.ReLU(inplace=True),
             nn.Dropout(),
             nn.Linear(4096, 4096),
